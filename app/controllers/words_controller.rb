@@ -8,5 +8,6 @@ class WordsController < ApplicationController
   
   def create
     Word.create(content: params[:word][:content])
+    redirect_to new_word_path
   end
 end
