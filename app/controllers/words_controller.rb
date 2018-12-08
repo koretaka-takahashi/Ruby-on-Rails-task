@@ -7,7 +7,7 @@ class WordsController < ApplicationController
   end
   
   def create
-    Word.create(content: params[:word][:content])
+    Word.create(params.require(:word).permit(:content))
     redirect_to new_word_path
   end
 end
