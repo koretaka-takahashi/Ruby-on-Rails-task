@@ -1,5 +1,6 @@
 class WordsController < ApplicationController
   def index
+    @words = Word.all
   end
   
   def new
@@ -7,7 +8,14 @@ class WordsController < ApplicationController
   end
   
   def create
-    Word.create(params.require(:word).permit(:content))
+    Word.create(word_params)
     redirect_to new_word_path
+  end
+  
+  
+  private
+
+  def word_params
+    params.require(:word).permit(:content)
   end
 end
