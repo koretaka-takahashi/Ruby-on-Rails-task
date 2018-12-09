@@ -1,5 +1,5 @@
 class WordsController < ApplicationController
-  before_action :set_word, only: [:show, :edit, :update]
+  before_action :set_word, only: [:show, :edit, :update, :destroy]
   
   def index
     @words = Word.all
@@ -26,10 +26,15 @@ class WordsController < ApplicationController
   
   def update
     if @word.update(word_params)
-      redirect_to words_path, notice: "ブログを編集しました！"
+      redirect_to words_path, notice: "つぶやきを編集しました！"
     else
       render 'edit'
     end
+  end
+  
+  def destroy
+    @word.destroy
+    redirect_to words_path, notice:"つぶやきを削除しました！"
   end
   
   

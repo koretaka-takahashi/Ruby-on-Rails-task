@@ -1,4 +1,6 @@
-<h1>Words#index</h1>
+<h1>つぶやき一覧</h1>
+<p><%= notice %></p>
+
 <%= link_to 'つぶやく', new_word_path %>
 
 <table>
@@ -11,6 +13,7 @@
     <td><%= word.content %></td>
     <td><%= link_to 'つぶやきを表示', word_path(word.id) %></td>
     <td><%= link_to "つぶやきを編集", edit_word_path(word.id) %></td>
+    <td><%= link_to 'つぶやきを削除', word_path(word.id), method: :delete %></td>
   </tr>
 <% end %>
 </table>
