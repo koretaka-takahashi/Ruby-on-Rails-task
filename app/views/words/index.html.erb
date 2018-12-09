@@ -10,6 +10,7 @@
   <tr>
     <td><%= word.content %></td>
     <td><%= link_to 'つぶやきを表示', word_path(word.id) %></td>
+    <td><%= link_to "つぶやきを編集", edit_word_path(word.id) %></td>
   </tr>
 <% end %>
 </table>

@@ -20,6 +20,19 @@ class WordsController < ApplicationController
     @word = Word.find(params[:id])
   end
   
+  def edit
+    @word = Word.find(params[:id])
+  end
+  
+  def update
+    @word = Word.find(params[:id])
+    if @word.update(word_params)
+      redirect_to words_path, notice: "ブログを編集しました！"
+    else
+      render 'edit'
+    end
+  end
+  
   
   private
 
