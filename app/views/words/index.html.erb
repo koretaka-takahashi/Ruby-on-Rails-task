@@ -9,6 +9,7 @@
 <% @words.each do |word| %>
   <tr>
     <td><%= word.content %></td>
+    <td><%= link_to 'つぶやきを表示', word_path(word.id) %></td>
   </tr>
 <% end %>
 </table>
