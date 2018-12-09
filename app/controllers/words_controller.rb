@@ -12,6 +12,10 @@ class WordsController < ApplicationController
     redirect_to new_word_path
   end
   
+  def show
+    @word = Word.find(params[:id])
+  end
+  
   
   private
 
