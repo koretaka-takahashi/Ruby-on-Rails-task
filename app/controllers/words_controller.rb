@@ -8,8 +8,12 @@ class WordsController < ApplicationController
   end
   
   def create
-    Word.create(word_params)
-    redirect_to new_word_path
+    @word = Word.new(word_params)
+    if @word.save
+      redirect_to words_path, notice: "つぶやきました！"
+    else
+      render 'new'
+    end
   end
   
   def show
