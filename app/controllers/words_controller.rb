@@ -6,7 +6,11 @@ class WordsController < ApplicationController
   end
   
   def new
-    @word = Word.new
+    if params[:back]
+      @word = Word.new(word_params)
+    else
+      @word = Word.new
+    end
   end
   
   def create
@@ -35,6 +39,11 @@ class WordsController < ApplicationController
   def destroy
     @word.destroy
     redirect_to words_path, notice:"つぶやきを削除しました！"
+  end
+  
+  def confirm
+    @word = Word.new(word_params)
+    render :new if @word.invalid?
   end
   
   

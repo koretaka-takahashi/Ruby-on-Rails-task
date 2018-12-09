@@ -12,8 +12,8 @@
   <tr>
     <td><%= word.content %></td>
     <td><%= link_to 'つぶやきを表示', word_path(word.id) %></td>
-    <td><%= link_to "つぶやきを編集", edit_word_path(word.id) %></td>
-    <td><%= link_to 'つぶやきを削除', word_path(word.id), method: :delete %></td>
+    <td><%= link_to "つぶやきを編集", edit_word_path(word.id), data: { confirm: '本当に編集していいですか？' } %></td>
+    <td><%= link_to 'つぶやきを削除', word_path(word.id), method: :delete, data: { confirm: '本当に削除していいですか？' } %></td>
   </tr>
 <% end %>
 </table>
